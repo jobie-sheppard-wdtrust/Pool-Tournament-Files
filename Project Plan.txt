@@ -1,1 +1,69 @@
-Project plan goes here
+Pool Tournament Web App Project Plan
+
+1) Project Goals
+- Build a web application to manage pool tournaments end-to-end.
+- Support player registration, bracket generation, match tracking, and standings.
+- Provide a simple public view for participants and spectators.
+
+2) Core User Roles
+- Admin: creates tournaments, manages players, records match results.
+- Player: registers and views schedule/results.
+- Spectator: views bracket, live results, and leaderboard.
+
+3) MVP Scope
+- Tournament creation form (name, date, format, race length, venue).
+- Player registration and roster management.
+- Single-elimination bracket generation (with optional seeding).
+- Match result entry and automatic bracket advancement.
+- Standings/results page.
+- Basic authentication for admin actions.
+
+4) Post-MVP Enhancements
+- Double-elimination and round-robin formats.
+- Handicap support and custom scoring rules.
+- Notifications (email/SMS) for upcoming matches.
+- Mobile-friendly score entry.
+- Export to PDF/CSV and shareable public links.
+
+5) Suggested Technical Approach
+- Frontend: responsive web UI with clear bracket and match cards.
+- Backend: REST API for tournaments, players, matches, and standings.
+- Database: relational schema for users, tournaments, players, rounds, matches.
+- Auth: session or token-based admin authentication.
+
+6) Data Model (High Level)
+- users: id, name, email, role, password_hash.
+- tournaments: id, title, format, start_date, venue, status.
+- players: id, tournament_id, display_name, seed, handicap.
+- matches: id, tournament_id, round, table_number, player_a_id, player_b_id, winner_id, status.
+- standings: id, tournament_id, player_id, wins, losses, points.
+
+7) Milestones
+- Milestone 1: Requirements finalization and wireframes.
+- Milestone 2: Backend API + database schema.
+- Milestone 3: Frontend MVP pages (admin + public views).
+- Milestone 4: Bracket logic and result progression.
+- Milestone 5: QA, bug fixes, and deployment.
+
+8) Timeline (Example 6 Weeks)
+- Week 1: Requirements, UX flow, technical design.
+- Week 2: Database and authentication.
+- Week 3: Tournament/player management features.
+- Week 4: Bracket generation + match workflow.
+- Week 5: Public pages, polish, and responsive improvements.
+- Week 6: Testing, deployment, and documentation.
+
+9) QA & Validation
+- Unit tests for bracket generation and advancement logic.
+- API tests for CRUD operations and auth-protected routes.
+- Manual end-to-end flow: create tournament -> register players -> run matches -> publish results.
+
+10) Deployment & Operations
+- Deploy app and database with environment-based configuration.
+- Add logging, error monitoring, and daily database backups.
+- Prepare admin guide and quick-start documentation.
+
+11) Success Criteria
+- Admin can run a full tournament without manual bracket handling.
+- Players/spectators can view accurate, up-to-date match outcomes.
+- MVP supports reliable operation for live event usage.
